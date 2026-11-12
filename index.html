@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сигнал - Интернет-магазин</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- ================= ЭКРАН 1: ГЛАВНАЯ ================= -->
+        <div id="screen-home" class="screen active">
+            <div class="header">
+                <div class="logo-area">
+                    <h1>Сигнал</h1>
+                    <p>📍 Москва • 12 салонов</p>
+                </div>
+                <div class="bell-icon">🔔</div>
+            </div>
+
+            <div class="search-bar">🔍 Смартфоны, аксессуары, тарифы</div>
+
+            <div class="hero-banner">
+                <div style="font-size: 10px; font-weight: 700; color: #4b5563; margin-bottom: 4px; text-transform: uppercase;">Апгрейд настройки</div>
+                <h2>Твой новый уровень связи</h2>
+                <p>iPhone 16 - от 59 990 ₽</p>
+                <button class="btn-primary" onclick="navigateTo('screen-catalog')">Выбрать →</button>
+                <!-- SVG заглушка вместо фото -->
+                <svg class="hero-img" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="5" width="80" height="140" rx="15" fill="#cbd5e1" stroke="#94a3b8" stroke-width="2"/>
+                    <rect x="15" y="15" width="70" height="120" rx="5" fill="#e2e8f0"/>
+                    <circle cx="50" cy="8" r="3" fill="#94a3b8"/>
+                </svg>
+            </div>
+
+            <div class="categories">
+                <div class="cat-item" onclick="navigateTo('screen-catalog')"><div class="cat-icon">📱</div><span>Смартфоны</span></div>
+                <div class="cat-item"><div class="cat-icon">🎧</div><span>Аксессуары</span></div>
+                <div class="cat-item"><div class="cat-icon">💳</div><span>Тарифы</span></div>
+                <div class="cat-item"><div class="cat-icon">💻</div><span>Услуги</span></div>
+            </div>
+
+            <div class="section-header">
+                <h3>Бестселлеры</h3>
+                <a onclick="navigateTo('screen-catalog')">Все →</a>
+            </div>
+
+            <div class="product-grid">
+                <!-- Товар 1 -->
+                <div class="product-card" onclick="navigateTo('screen-product')">
+                    <div class="product-img-container">
+                        <span class="heart-icon">♡</span>
+                        <!-- SVG заглушка -->
+                        <svg class="product-img" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="25" y="10" width="50" height="80" rx="8" fill="#1e3a8a"/>
+                            <rect x="30" y="15" width="40" height="70" rx="3" fill="#3b82f6"/>
+                            <circle cx="50" cy="12" r="2" fill="#94a3b8"/>
+                        </svg>
+                    </div>
+                    <div class="product-title">iPhone 13</div>
+                    <div class="product-specs">128 ГБ • Ультрамарин</div>
+                    <div class="product-specs" style="color: #eab308;">★ 4.9 (128 отзывов)</div>
+                    <div class="product-price">59 990 ₽</div>
+                    <button class="btn-add" onclick="event.stopPropagation(); addToCart('iPhone 13', 59990)">В корзину</button>
+                </div>
+                <!-- Товар 2 -->
+                <div class="product-card" onclick="navigateTo('screen-product')">
+                    <div class="product-img-container">
+                        <span class="heart-icon">♡</span>
+                        <!-- SVG заглушка -->
+                        <svg class="product-img" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="20" y="10" width="60" height="80" rx="5" fill="#cbd5e1"/>
+                            <rect x="25" y="15" width="50" height="70" rx="2" fill="#f1f5f9"/>
+                            <circle cx="50" cy="12" r="2" fill="#94a3b8"/>
+                        </svg>
+                    </div>
+                    <div class="product-title">Galaxy S25</div>
+                    <div class="product-specs">128 ГБ • Серебристый</div>
+                    <div class="product-specs" style="color: #eab308;">★ 4.8 (86 отзывов)</div>
+                    <div class="product-price">64 990 ₽</div>
+                    <button class="btn-add" onclick="event.stopPropagation(); addToCart('Galaxy S25', 64990)">В корзину</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= ЭКРАН 2: КАТАЛОГ ================= -->
+        <div id="screen-catalog" class="screen">
+            <div class="header">
+                <button class="back-btn" onclick="navigateTo('screen-home')">←</button>
+                <div class="header-title">Смартфоны</div>
+                <div class="bell-icon">♡</div>
+            </div>
+            
+            <div class="search-bar">🔍 Найти смартфон</div>
+
+            <div class="filter-tags">
+                <span class="tag active">Все</span>
+                <span class="tag">Apple</span>
+                <span class="tag">Samsung</span>
+                <span class="tag">Xiaomi</span>
+            </div>
+            <div class="filter-row">
+                <span>⚙️ Фильтры</span>
+                <span>По популярности ↓</span>
+            </div>
+
+            <div class="product-grid">
+                <!-- Товар 1 -->
+                <div class="product-card" onclick="navigateTo('screen-product')">
+                    <div class="product-img-container">
+                        <span class="badge-hit">ХИТ</span>
+                        <span class="heart-icon">♡</span>
+                        <svg class="product-img" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="25" y="10" width="50" height="80" rx="8" fill="#1e3a8a"/>
+                            <rect x="30" y="15" width="40" height="70" rx="3" fill="#3b82f6"/>
+                            <circle cx="50" cy="12" r="2" fill="#94a3b8"/>
+                        </svg>
+                    </div>
+                    <div class="product-title">iPhone 13</div>
+                    <div class="product-specs">128 ГБ • Ультрамарин</div>
+                    <div class="product-specs" style="color: #eab308;">★ 4.9 (128 отзывов)</div>
+                    <div class="product-price">59 990 ₽</div>
+                    <button class="btn-add" onclick="event.stopPropagation(); addToCart('iPhone 13', 59990)">В корзину</button>
+                </div>
+                <!-- Товар 2 -->
+                <div class="product-card" onclick="navigateTo('screen-product')">
+                    <div class="product-img-container">
+                        <span class="badge-new">НОВИНКА</span>
+                        <span class="heart-icon">♡</span>
+                        <svg class="product-img" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="20" y="10" width="60" height="80" rx="5" fill="#cbd5e1"/>
+                            <rect x="25" y="15" width="50" height="70" rx="2" fill="#f1f5f9"/>
+                            <circle cx="50" cy="12" r="2" fill="#94a3b8"/>
+                        </svg>
+                    </div>
+                    <div class="product-title">Galaxy S25</div>
+                    <div class="product-specs">128 ГБ • Серебристый</div>
+                    <div class="product-specs" style="color: #eab308;">★ 4.8 (86 отзывов)</div>
+                    <div class="product-price">64 990 ₽</div>
+                    <button class="btn-add" onclick="event.stopPropagation(); addToCart('Galaxy S25', 64990)">В корзину</button>
+                </div>
+            </div>
+            
+            <div class="trade-in-banner">
+                <h4>Обновляйся с trade-in</h4>
+                <p>Сдайте старое устройство и получите скидку на новое в нашем салоне.</p>
+            </div>
+        </div>
+
+        <!-- ================= ЭКРАН 3: КАРТОЧКА ТОВАРА ================= -->
+        <div id="screen-product" class="screen">
+            <div class="header">
+                <button class="back-btn" onclick="navigateTo('screen-catalog')">←</button>
+                <div class="header-title">Смартфон</div>
+                <div class="bell-icon">♡</div>
+            </div>
+
+            <div class="product-hero">
+                <span class="badge-hit" style="top: 10px; left: 20px;">БЕСТСЕЛЛЕР</span>
+                <!-- Увеличенная SVG заглушка -->
+                <svg class="main-product-img" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 200px; height: 250px;">
+                    <rect x="25" y="5" width="50" height="90" rx="10" fill="#1e3a8a"/>
+                    <rect x="30" y="10" width="40" height="80" rx="4" fill="#3b82f6"/>
+                    <circle cx="50" cy="7" r="2" fill="#94a3b8"/>
+                    <rect x="35" y="70" width="30" height="10" rx="2" fill="#e2e8f0" opacity="0.3"/>
+                </svg>
+            </div>
+
+            <div class="product-details">
+                <h2>Apple iPhone 13</h2>
+                <div class="rating-row">
+                    <span style="color: #eab308;">★ 4.9</span>
+                    <span style="color: #6b7280; font-size: 12px;">128 отзывов</span>
+                    <span style="color: #10b981; font-size: 12px; margin-left: auto;">В наличии</span>
+                </div>
+
+                <div class="color-picker">
+                    <p>Цвет: ультрамарин</p>
+                    <div class="colors">
+                        <div class="color-dot active" style="background: #1e3a8a;"></div>
+                        <div class="color-dot" style="background: #000;"></div>
+                        <div class="color-dot" style="background: #fbcfe8;"></div>
+                        <div class="color-dot" style="background: #f3f4f6;"></div>
+                    </div>
+                </div>
+
+                <div class="storage-picker">
+                    <p>Память</p>
+                    <div class="storage-options">
+                        <div class="storage-btn active">128 ГБ</div>
+                        <div class="storage-btn">256 ГБ</div>
+                        <div class="storage-btn">512 ГБ</div>
+                    </div>
+                </div>
+
+                <div class="specs-banner">
+                    6.1" OLED • A15 • Камера 48 Мп
+                </div>
+
+                <div class="delivery-info">
+                    <p>📍 <b>Самовывоз сегодня - бесплатно</b></p>
+                    <p style="font-size: 12px; color: #6b7280; margin-top: 4px;">В 12 салонах Москва</p>
+                    <p style="font-size: 12px; color: #6b7280;">Гарантия 12 месяцев</p>
+                </div>
+
+                <div class="bottom-action-bar">
+                    <div class="price-block">
+                        <div class="price">59 990 ₽</div>
+                        <div class="monthly">или 4 999 ₽ × 12 мес.</div>
+                    </div>
+                    <button class="btn-primary" onclick="addToCart('iPhone 13', 59990)">В корзину</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= ЭКРАН 4: КОРЗИНА ================= -->
+        <div id="screen-cart" class="screen">
+            <div class="header">
+                <button class="back-btn" onclick="navigateTo('screen-home')">←</button>
+                <div class="header-title">Корзина</div>
+                <div class="bell-icon">🛒</div>
+            </div>
+
+            <div class="cart-content">
+                <div class="cart-item">
+                    <!-- SVG заглушка в корзине -->
+                    <svg style="width: 60px; height: 60px; border-radius: 8px; background: #f1f5f9;" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="25" y="10" width="50" height="80" rx="8" fill="#1e3a8a"/>
+                        <rect x="30" y="15" width="40" height="70" rx="3" fill="#3b82f6"/>
+                    </svg>
+                    <div class="cart-item-info">
+                        <div class="product-title">Apple iPhone 13</div>
+                        <div class="product-specs">128 ГБ • Ультрамарин</div>
+                        <div class="product-price">59 990 ₽</div>
+                    </div>
+                    <div class="cart-item-controls">
+                        <button>-</button>
+                        <span>1</span>
+                        <button>+</button>
+                    </div>
+                </div>
+
+                <div class="delivery-section">
+                    <h3>Как получить заказ</h3>
+                    <div class="toggle-buttons">
+                        <button class="active">Самовывоз</button>
+                        <button>Доставка</button>
+                    </div>
+                    <div class="address-card">
+                        <p>📍 <b>Салон «Сигнал»</b></p>
+                        <p style="font-size: 12px; color: #6b7280;">Москва, ул. Тверская, 12</p>
+                        <p style="font-size: 12px; color: #6b7280;">Сегодня - 10:00-22:00</p>
+                    </div>
+                </div>
+
+                <div class="total-section">
+                    <div class="total-row">
+                        <span>Товары - 1 шт.</span>
+                        <span>59 990 ₽</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Самовывоз</span>
+                        <span>Бесплатно</span>
+                    </div>
+                    <div class="total-row final">
+                        <span>К оплате</span>
+                        <span>59 990 ₽</span>
+                    </div>
+                </div>
+
+                <div class="bottom-action-bar" style="position: relative; margin-top: 20px; box-shadow: none;">
+                    <div class="price-block">
+                        <div class="price">59 990 ₽</div>
+                        <div class="monthly">Итого - 1 товар</div>
+                    </div>
+                    <button class="btn-primary" style="width: 160px;">Оформить заказ</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Нижнее меню -->
+        <div class="bottom-nav" id="main-nav">
+            <div class="nav-item active" onclick="navigateTo('screen-home', this)">
+                <span class="nav-icon">🏠</span><span>Главная</span>
+            </div>
+            <div class="nav-item" onclick="navigateTo('screen-catalog', this)">
+                <span class="nav-icon">🗂️</span><span>Каталог</span>
+            </div>
+            <div class="nav-item">
+                <span class="nav-icon">♡</span><span>Избранное</span>
+            </div>
+            <div class="nav-item" onclick="navigateTo('screen-cart', this)">
+                <span class="nav-icon">🛒</span><span>Корзина</span>
+                <span id="cart-count" class="cart-badge">0</span>
+            </div>
+            <div class="nav-item">
+                <span class="nav-icon">👤</span><span>Профиль</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
